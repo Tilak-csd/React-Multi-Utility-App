@@ -1,5 +1,3 @@
-
-import { useEffect } from 'react'
 import { atom, selector } from 'recoil' 
 export const NumWords = atom({
     key : "NumWords",
@@ -15,4 +13,8 @@ export const OTPAtom = atom({
     key : "OTPAtom",
     default : null
 })
-   
+
+export const CurrentStatus = atom({
+    key : "CurrentStatus",
+    default : "Phone_Card"
+})

@@ -1,18 +1,20 @@
-import React from 'react'
-import { OTPAtom, phonenumber } from '../store/atoms/main'
+import React, { useState } from 'react'
+import { OTPAtom, phonenumber, CurrentStatus } from '../store/atoms/main'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 
 export default function OTPLogin() {
+    const currentStatusAtom = useRecoilValue(CurrentStatus) 
     return (
         <div className='w-full flex justify-center items-center h-[100vh]'>
-            <Card />
+            { currentStatusAtom == "Phone_Card" && <PhoneCard />}
+            { currentStatusAtom == "OTP_Card" && <OTPCard />}
         </div>
     )
 }
 
-function Card() {
+function PhoneCard() {
     const [phoneNumber, setPhoneNumber] = useRecoilState(phonenumber)
-
+    const setcurrentState = useSetRecoilState(CurrentStatus)
     const setOTP = useSetRecoilState(OTPAtom)
     function handleOPT() {
         if (!phoneNumber) {
@@ -21,9 +23,9 @@ function Card() {
         }
         const newOTP = Math.floor(Math.random() * 10000)
         setOTP(newOTP)
+        setcurrentState("OTP_Card")
         console.log(` OPT Generated for ${phoneNumber} : ${newOTP}`);
         alert(`Your OTP is ${newOTP}`)
-    
     }
 
 
@@ -43,4 +45,14 @@ function Card() {
         >Send OTP</button>
 
     </div>
+}
+
+
+function OTPCard(){
+    return <div className="w-[25%] rounded-2xl 
+  bg-[linear-gradient(315deg,#d9d9d9,#f8f8f8)]
+  shadow-[20px_20px_40px_#bebebe,-20px_-20px_40px_#ffffff]
+  p-6 text-center flex justify-center items-center flex-col gap-2">
+    heelo
+  </div>
 }
