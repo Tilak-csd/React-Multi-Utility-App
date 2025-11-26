@@ -11,17 +11,12 @@ export const phonenumber = atom({
     default : 0
 })
 
-export const OTP = selector({
-    key : "OTP",
-    value  : ({get}) =>{
+export const OTPQuery = selector({
+    key : "OTPQuery",
+    get  : ({get}) =>{
         const phoneNumber = get(phonenumber)
-        return OTPGenerattion(phoneNumber)
+        const OTPNumber = Math.floor(Math.random() * 10000)
+        if (!phoneNumber) return null;
+        return OTPNumber 
     }
 })
-
-function OTPGenerattion(phonenumber){
-   return useEffect(()=>{
-        const OTPnumber = Math.floor(Math.random * 10000)
-        return OTPnumber
-    }, [phonenumber])
-}
