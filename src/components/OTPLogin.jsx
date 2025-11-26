@@ -9,6 +9,7 @@ export default function OTPLogin() {
         <div className='w-full flex justify-center items-center h-[100vh]'>
             {currentStatusAtom == "Phone_Card" && <PhoneCard />}
             {currentStatusAtom == "OTP_Card" && <OTPCard />}
+            {currentStatusAtom == "Logged_In" && <Home /> }
         </div>
     )
 }
@@ -81,6 +82,20 @@ function OTPCard() {
 
     }
 
+    // function to check wheather the OTP entered is correct or not and rendering `Home` component if correct.
+    function CheckingOTP(){
+        // convert the entered opt into number and joining the array
+        const enteredOTP = parseInt(otp_list.join(""))
+        if (enteredOTP === OTP){
+            setcurrentState("Logged_In")
+        }else {
+            alert("Enter the Correct OPT code.")
+            return;
+        }
+        console.log(enteredOTP);
+        
+    }
+
 
     return <div className="w-[25%] rounded-2xl 
   bg-[linear-gradient(315deg,#d9d9d9,#f8f8f8)]
@@ -99,19 +114,31 @@ function OTPCard() {
         <div className='flex justify-center items-center gap-2 mt-3'>
             {otp_list.map((digit, idx) => {
                 return <input
+                // save the each input box into ref array
                 ref={(el) => (inputs.current[idx] = el) }
                     key={idx}
                     type="text"
+                    // max length
                     maxLength={1}
                     value={digit}
+                    // calling a function to move forward whenever a digit is inserted 
                     onChange={(e) => handleChange(e, idx)}
+                    // calling the function to backspace, whenever the 'key:backspace' is clicked in keyboard 
                     onKeyDown={(e) => handleKeyDown(e, idx)}
                     className='w-14 h-14 border border-gray-300 rounded-xl text-center text-xl font-semibold focus:outline-none focus:border-blue-500'
                 />
             })}
         </div>
-        <button>Submit</button>
+        {/* button to check to submit the entered OTP and check wheather the entered OTP matches the generated OTP  */}
+        <button onClick={CheckingOTP}>Submit</button>
 
 
+    </div>
+}
+
+// Render if the entered OTP code is correct and submitted.
+function Home(){
+    return <div>
+        <h1 className='text-2xl text-gray-500'>You are logged In successfully.</h1>
     </div>
 }
