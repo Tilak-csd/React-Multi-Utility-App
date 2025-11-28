@@ -59,7 +59,7 @@ This React project is a collection of interactive utility components, showcasing
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Tilak-csd/Assignment-week-7.git
+   git clone https://github.com/Tilak-csd/React-Multi-Utility-App.git
    ```
 2. Navigate to the project directory:
 
