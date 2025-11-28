@@ -59,12 +59,12 @@ This React project is a collection of interactive utility components, showcasing
 1. Clone the repository:
 
    ```bash
-   git clone [YOUR_REPO_URL]
+   git clone https://github.com/Tilak-csd/Assignment-week-7.git
    ```
 2. Navigate to the project directory:
 
    ```bash
-   cd assigment-
+   cd Assignment-week-7
    ```
 3. Install dependencies:
 
@@ -74,7 +74,7 @@ This React project is a collection of interactive utility components, showcasing
 4. Run the development server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 5. Open your browser at `http://localhost:3000` to view the project.
 
