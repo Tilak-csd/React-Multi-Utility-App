@@ -64,7 +64,7 @@ This React project is a collection of interactive utility components, showcasing
 2. Navigate to the project directory:
 
    ```bash
-   cd Assignment-week-7
+   cd React-Multi-Utility-App
    ```
 3. Install dependencies:
 
