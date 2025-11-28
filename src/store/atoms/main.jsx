@@ -18,3 +18,13 @@ export const CurrentStatus = atom({
     key : "CurrentStatus",
     default : "Phone_Card"
 })
+
+export const UserName = atom({
+    key : "UserName",
+    default : null
+})
+
+export const birthdayStatus = atom({
+    key : "birthdayStatus",
+    default : "Input_Card"
+})
